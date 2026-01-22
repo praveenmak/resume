@@ -53,6 +53,19 @@
         }
         .ai-message ul { list-style-type: disc; margin-left: 1.2em; margin-top: 0.5em; }
         .ai-message strong { color: #3730a3; font-weight: 600; }
+
+        /* Animation for Header Elements */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-900">
@@ -101,28 +114,45 @@
     <!-- Hero Section -->
     <header id="summary" class="relative pt-20 pb-16 overflow-hidden">
         <div class="container mx-auto px-4 text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-6 animate-fade-in-up">
                 <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
                 Open to Leadership Roles
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 tracking-tight">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 tracking-tight animate-fade-in-up">
                 Praveen Maruvekere
             </h1>
-            <h2 class="text-xl md:text-2xl text-slate-500 font-medium mb-8">
+            <h2 class="text-xl md:text-2xl text-slate-500 font-medium mb-8 animate-fade-in-up delay-100">
                 Principal Engineer | <span class="text-indigo-600">System Architecture</span> | Engineering Leader
             </h2>
-            <p class="max-w-3xl mx-auto text-lg text-slate-600 leading-relaxed mb-10">
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 leading-relaxed mb-10 animate-fade-in-up delay-100">
                 Strategic technology leader with over 15 years of experience. Currently operating at a 
                 <strong>Solution Architect</strong> level, designing scalable <strong>Cloud-Native Systems</strong> 
                 and guiding <strong>Digital Transformation</strong> in regulated environments.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-10 animate-fade-in-up delay-200">
                 <a href="#experience" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
                     View Architectural Journey
                 </a>
                 <button onclick="openAIModal()" class="bg-white text-slate-700 border border-slate-300 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition flex items-center gap-2">
                     <i class="ph-bold ph-chat-circle-dots"></i> Chat with Profile
                 </button>
+            </div>
+
+            <!-- Prominent Social Links -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 animate-fade-in-up delay-200">
+                <a href="https://www.linkedin.com/in/makcpp/" target="_blank" class="flex items-center gap-2 px-5 py-2 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-[#0077b5] hover:border-[#0077b5] hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+                    <i class="ph-fill ph-linkedin-logo text-2xl text-[#0077b5]"></i>
+                    <span class="font-medium">LinkedIn</span>
+                </a>
+                <a href="https://stackoverflow.com/users/1708675/praveenmak" target="_blank" class="flex items-center gap-2 px-5 py-2 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-[#f48024] hover:border-[#f48024] hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+                    <i class="ph-fill ph-stack-overflow-logo text-2xl text-[#f48024]"></i>
+                    <span class="font-medium">StackOverflow</span>
+                </a>
+                <a href="https://medium.com/@praveenmak" target="_blank" class="flex items-center gap-2 px-5 py-2 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-black hover:border-black hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+                    <i class="ph-fill ph-medium-logo text-2xl text-black"></i>
+                    <span class="font-medium">Medium</span>
+                </a>
             </div>
         </div>
     </header>
@@ -263,12 +293,15 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-300 py-12">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <!-- Identity -->
+                <div class="text-center md:text-left">
                     <h4 class="text-white text-xl font-bold mb-2">Praveen Maruvekere</h4>
                     <p class="text-slate-500 text-sm">Principal Engineer & System Architect</p>
                 </div>
-                <div class="flex space-x-6 text-sm">
+
+                <!-- Contact -->
+                <div class="flex flex-col sm:flex-row gap-4 text-sm text-slate-400">
                     <a href="mailto:praveenml@gmail.com" class="hover:text-white transition flex items-center gap-2">
                         <i class="ph-bold ph-envelope"></i> praveenml@gmail.com
                     </a>
@@ -276,6 +309,7 @@
                     <span class="flex items-center gap-2"><i class="ph-bold ph-map-pin"></i> Boca Raton, FL</span>
                 </div>
             </div>
+
             <div class="border-t border-slate-800 mt-8 pt-8 text-center text-xs text-slate-600">
                 &copy; 2026 Interactive Resume Portfolio. Generated from Resume Data.
             </div>
