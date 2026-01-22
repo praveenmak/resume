@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen Maruvekere | Principal Engineer & System Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Phosphor Icons (Unicode/Font alternative to SVG) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Chart Container Styling - MANDATORY REQUIREMENT */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Base height */
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* Timeline Item Interaction */
+        .timeline-item {
+            transition: all 0.2s ease;
+        }
+        .timeline-item:hover {
+            transform: translateX(4px);
+        }
+        .timeline-item.active {
+            border-left-color: #4f46e5; /* Indigo-600 */
+            background-color: #eef2ff; /* Indigo-50 */
+        }
+
+        /* AI Chat Styling */
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        .ai-message ul { list-style-type: disc; margin-left: 1.2em; margin-top: 0.5em; }
+        .ai-message strong { color: #3730a3; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- Chosen Palette: "Executive Indigo". Base: Stone-50 (Warm Neutral). Primary: Indigo-600. Text: Slate-800. 
+         This palette communicates stability, intelligence, and modern professionalism suitable for an Architect role. -->
+
+    <!-- Application Structure Plan:
+         1. Hero Section: Establishes "System Architecture" and "Leadership" immediately.
+         2. Strategic Competency Dashboard: Visualizes the candidate's multi-dimensional skill set (Tech vs. Strategy) using a Radar Chart.
+         3. Quantifiable Impact Lab: Isolates hard numbers (Cost, Latency, Speed) into a Bar Chart to prove ROI to hiring managers.
+         4. Experience Timeline: A functional master-detail view allowing deep dives into specific architectural roles without cluttering the page.
+         5. AI Architect Assistant: A floating interaction layer allowing natural language queries about the candidate's background.
+    -->
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="font-bold text-xl text-slate-900 tracking-tight flex items-center gap-2">
+                <i class="ph-fill ph-code-block text-indigo-600 text-2xl"></i>
+                <span>Praveen M.</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#summary" class="hover:text-indigo-600 transition-colors">Overview</a>
+                <a href="#competency" class="hover:text-indigo-600 transition-colors">Competencies</a>
+                <a href="#impact" class="hover:text-indigo-600 transition-colors">Impact</a>
+                <a href="#experience" class="hover:text-indigo-600 transition-colors">Experience</a>
+            </div>
+            <button onclick="openAIModal()" class="hidden md:flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-indigo-100 transition border border-indigo-200">
+                <i class="ph-bold ph-sparkle"></i> Ask AI Assistant
+            </button>
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-slate-600 text-2xl" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+                <i class="ph-bold ph-list"></i>
+            </button>
+        </div>
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="hidden md:hidden bg-white border-b border-stone-200 p-4 space-y-3">
+            <a href="#summary" class="block text-slate-600 font-medium">Overview</a>
+            <a href="#competency" class="block text-slate-600 font-medium">Competencies</a>
+            <a href="#impact" class="block text-slate-600 font-medium">Impact</a>
+            <a href="#experience" class="block text-slate-600 font-medium">Experience</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="summary" class="relative pt-20 pb-16 overflow-hidden">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-6">
+                <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
+                Open to Leadership Roles
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                Praveen Maruvekere
+            </h1>
+            <h2 class="text-xl md:text-2xl text-slate-500 font-medium mb-8">
+                Principal Engineer | <span class="text-indigo-600">System Architecture</span> | Engineering Leader
+            </h2>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 leading-relaxed mb-10">
+                Strategic technology leader with over 15 years of experience. Currently operating at a 
+                <strong>Solution Architect</strong> level, designing scalable <strong>Cloud-Native Systems</strong> 
+                and guiding <strong>Digital Transformation</strong> in regulated environments.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#experience" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
+                    View Architectural Journey
+                </a>
+                <button onclick="openAIModal()" class="bg-white text-slate-700 border border-slate-300 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition flex items-center gap-2">
+                    <i class="ph-bold ph-chat-circle-dots"></i> Chat with Profile
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Competency Dashboard -->
+    <section id="competency" class="py-16 bg-white border-y border-stone-200">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h3 class="text-2xl font-bold text-slate-900 mb-3">Architectural Competency Profile</h3>
+                <p class="text-slate-600">
+                    This section visualizes the balance between my hands-on technical depth in C++ and my strategic capabilities in Cloud Architecture and Leadership. It demonstrates a well-rounded profile suitable for Solution Architect roles.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Radar Chart -->
+                <div class="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+                    <!-- Visualization & Content Choices:
+                         Goal: Show multi-dimensional expertise (Tech vs Leadership).
+                         Viz Method: Radar Chart.
+                         Justification: Radar charts effectively display 'balance' across multiple distinct skill domains.
+                    -->
+                    <div class="chart-container">
+                        <canvas id="competencyChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Skills Matrix -->
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="flex items-center gap-2 text-lg font-bold text-slate-900 mb-4">
+                            <i class="ph-fill ph-strategy text-indigo-600"></i> Architecture & Leadership
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Distributed Systems</span>
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Microservices Strategy</span>
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Cloud-Native (Azure)</span>
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Technical Roadmap</span>
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Team Leadership (10+)</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="flex items-center gap-2 text-lg font-bold text-slate-900 mb-4">
+                            <i class="ph-fill ph-code text-emerald-600"></i> Technical Expertise
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">Modern C++ (C++20)</span>
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">HPC & Low-Latency</span>
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">Multithreading</span>
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">AKS / Kubernetes</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="flex items-center gap-2 text-lg font-bold text-slate-900 mb-4">
+                            <i class="ph-fill ph-cloud-gear text-amber-600"></i> Strategic Oversight (IaC)
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">Terraform Strategy</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">Ansible Integration</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">OpenTelemetry</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">Cost Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="py-16 bg-stone-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- Text Intro -->
+                <div class="md:col-span-4 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Quantifiable Impact</h3>
+                    <p class="text-slate-600 mb-6">
+                        My architectural decisions don't just improve code quality—they drive business value. 
+                        Here is a breakdown of the measurable improvements achieved in recent projects through optimization and modernization.
+                    </p>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
+                            <div class="text-3xl font-bold text-indigo-600">90%</div>
+                            <div class="text-sm font-medium text-slate-500 uppercase">Latency Reduction</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
+                            <div class="text-3xl font-bold text-emerald-600">~20%</div>
+                            <div class="text-sm font-medium text-slate-500 uppercase">Cloud Cost Savings</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="md:col-span-8">
+                    <!-- Visualization & Content Choices:
+                         Goal: Visualize ROI and Performance.
+                         Viz Method: Bar Chart.
+                         Justification: Bar charts are best for comparing distinct metrics where the magnitude is the key takeaway.
+                    -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                        <div class="chart-container">
+                            <canvas id="impactChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Engine -->
+    <section id="experience" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold text-slate-900">Professional Journey</h3>
+                <p class="text-slate-500 mt-2">
+                    A progression from hands-on development to strategic architectural leadership. 
+                    Click on a role to view specific architectural contributions.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 min-h-[500px]">
+                <!-- Role List (Left) -->
+                <div class="w-full md:w-1/3 flex flex-col gap-2" id="role-list">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Detail View (Right) -->
+                <div class="w-full md:w-2/3">
+                    <div id="role-detail" class="bg-stone-50 rounded-2xl border border-stone-200 p-8 h-full transition-opacity duration-300">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h4 class="text-white text-xl font-bold mb-2">Praveen Maruvekere</h4>
+                    <p class="text-slate-500 text-sm">Principal Engineer & System Architect</p>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="mailto:praveenml@gmail.com" class="hover:text-white transition flex items-center gap-2">
+                        <i class="ph-bold ph-envelope"></i> praveenml@gmail.com
+                    </a>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-phone"></i> +1 305 794 4762</span>
+                    <span class="flex items-center gap-2"><i class="ph-bold ph-map-pin"></i> Boca Raton, FL</span>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-xs text-slate-600">
+                &copy; 2026 Interactive Resume Portfolio. Generated from Resume Data.
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chat Modal -->
+    <div id="ai-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg h-[600px] flex flex-col overflow-hidden animate-fade-in-up">
+            <div class="bg-indigo-600 p-4 flex justify-between items-center text-white shrink-0">
+                <div class="flex items-center gap-2">
+                    <i class="ph-bold ph-robot text-xl"></i>
+                    <h3 class="font-bold">Architect Assistant</h3>
+                </div>
+                <button onclick="closeAIModal()" class="hover:bg-white/20 rounded-full p-1 transition"><i class="ph-bold ph-x"></i></button>
+            </div>
+            
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-stone-50">
+                <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0"><i class="ph-bold ph-robot"></i></div>
+                    <div class="bg-white border border-stone-200 rounded-2xl rounded-tl-none p-3 shadow-sm text-sm text-slate-700">
+                        Hello! I am an AI agent trained on Praveen's resume. You can ask me about his leadership experience, architectural philosophy, or specific technical skills.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggested Questions -->
+            <div class="px-4 py-2 bg-stone-50 flex gap-2 overflow-x-auto">
+                <button onclick="sendQuickMessage('What is his experience with Cloud Cost Optimization?')" class="whitespace-nowrap px-3 py-1 bg-white border border-indigo-100 text-indigo-700 text-xs rounded-full hover:bg-indigo-50">💰 Cost Optimization?</button>
+                <button onclick="sendQuickMessage('Describe his leadership style.')" class="whitespace-nowrap px-3 py-1 bg-white border border-indigo-100 text-indigo-700 text-xs rounded-full hover:bg-indigo-50">👥 Leadership Style?</button>
+            </div>
+
+            <div class="p-4 border-t border-stone-200 bg-white shrink-0">
+                <div class="flex gap-2">
+                    <input type="text" id="user-input" placeholder="Ask a question..." class="flex-1 border border-stone-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" onkeypress="handleEnter(event)">
+                    <button onclick="sendMessage()" class="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg px-4 py-2 transition disabled:opacity-50" id="send-btn">
+                        <i class="ph-bold ph-paper-plane-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = ""; // API Key injected by environment
+
+        // --- DATA SOURCE (From Source Report) ---
+        const resumeData = {
+            roles: [
+                {
+                    title: "Principal Engineer",
+                    context: "Acting as Lead Architect",
+                    company: "LexisNexis Risk Solutions",
+                    period: "2021 – Present",
+                    summary: "Leading architectural vision and modernization strategies for core data platforms.",
+                    details: [
+                        { icon: "ph-arrows-split", title: "Architectural Modernization", text: "Spearheaded strategic overhaul using Modern C++20 (Coroutines, Concepts), improving throughput and longevity." },
+                        { icon: "ph-users-three", title: "Engineering Leadership", text: "Led cross-functional teams (10+ members) across geographies. Directed DevOps automation and microservices scalability." },
+                        { icon: "ph-cloud", title: "Cloud Strategy (AKS)", text: "Designed highly available services on Azure Kubernetes Service. Implemented autoscaling to reduce infrastructure spend by ~20%." },
+                        { icon: "ph-gear", title: "IaC Oversight", text: "Championed organizational adoption of Terraform & Ansible. Directed integration strategies to reduce configuration drift." },
+                        { icon: "ph-chart-line-up", title: "Performance Engineering", text: "Guided real-time Redis caching strategies, achieving a 90% reduction in data retrieval times." }
+                    ]
+                },
+                {
+                    title: "Tech Lead",
+                    context: "System Design & Ops Excellence",
+                    company: "LexisNexis Risk Solutions",
+                    period: "2017 – 2021",
+                    summary: "Driving high-performance system design and operational excellence.",
+                    details: [
+                        { icon: "ph-lightning", title: "High-Performance Design", text: "Architected real-time engines using C++20 coroutines, eliminating thread context-switching overhead." },
+                        { icon: "ph-arrows-left-right", title: "Concurrency Optimization", text: "Designed lock-free ring buffers & std:atomic IPC mechanisms, significantly reducing latency." },
+                        { icon: "ph-rocket", title: "Process Improvement", text: "Enhanced CI/CD pipelines, improving software release cycles by 30%." }
+                    ]
+                },
+                {
+                    title: "Senior Software Engineer",
+                    context: "Application Development",
+                    company: "LexisNexis Risk Solutions",
+                    period: "2014 – 2017",
+                    summary: "Developing complex billing applications and custom algorithms.",
+                    details: [
+                        { icon: "ph-code", title: "Billing Applications", text: "Developed complex apps from scratch integrating MySQL/Sybase." },
+                        { icon: "ph-database", title: "Custom Caching", text: "Designed custom C++ cache algorithms bypassing STL overhead." },
+                        { icon: "ph-magnifying-glass", title: "ELK Stack", text: "Built end-to-end ELK implementations for log analysis." }
+                    ]
+                },
+                {
+                    title: "Consulting Engineer",
+                    context: "Migration Projects",
+                    company: "LexisNexis Risk Solutions",
+                    period: "2009 – 2014",
+                    summary: "Led full SDLC for key mainframe migration projects.",
+                    details: [
+                        { icon: "ph-arrow-fat-lines-right", title: "Legacy Migration", text: "Moved legacy mainframe apps to modern C++ architectures." },
+                        { icon: "ph-check-circle", title: "SDLC Leadership", text: "Led full lifecycle processes for key projects." }
+                    ]
+                }
+            ]
+        };
+
+        // --- CHART GENERATION ---
+        function initCharts() {
+            // 1. Competency Radar
+            new Chart(document.getElementById('competencyChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Distributed Systems', 'Modern C++ (HPC)', 'Cloud Strategy', 'Team Leadership', 'DevOps Oversight', 'Observability'],
+                    datasets: [{
+                        label: 'Proficiency Level',
+                        data: [95, 95, 90, 85, 80, 85],
+                        backgroundColor: 'rgba(79, 70, 229, 0.2)', // Indigo
+                        borderColor: '#4f46e5',
+                        pointBackgroundColor: '#4f46e5',
+                        pointHoverBorderColor: '#4f46e5'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e5e7eb' },
+                            grid: { color: '#e5e7eb' },
+                            pointLabels: { font: { size: 12 }, color: '#475569' },
+                            suggestedMin: 0, suggestedMax: 100,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // 2. Impact Bar Chart
+            new Chart(document.getElementById('impactChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Latency Reduction', 'Release Speedup', 'Cloud Cost Savings', 'Scalability'],
+                    datasets: [{
+                        label: 'Improvement (%)',
+                        data: [90, 30, 20, 80],
+                        backgroundColor: [
+                            'rgba(79, 70, 229, 0.8)', // Indigo
+                            'rgba(16, 185, 129, 0.8)', // Emerald
+                            'rgba(245, 158, 11, 0.8)', // Amber
+                            'rgba(59, 130, 246, 0.8)'  // Blue
+                        ],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { 
+                            beginAtZero: true, 
+                            grid: { color: '#f1f5f9' },
+                            ticks: { callback: v => v + '%' } 
+                        },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // --- EXPERIENCE ENGINE LOGIC ---
+        function renderExperience() {
+            const list = document.getElementById('role-list');
+            list.innerHTML = '';
+            
+            resumeData.roles.forEach((role, idx) => {
+                const item = document.createElement('div');
+                item.className = `timeline-item p-4 border-l-4 border-stone-200 cursor-pointer bg-white rounded-r-lg ${idx === 0 ? 'active' : ''}`;
+                item.onclick = () => selectRole(idx);
+                item.innerHTML = `
+                    <div class="font-bold text-slate-800">${role.title}</div>
+                    <div class="text-xs font-semibold text-indigo-600 uppercase tracking-wide mt-1">${role.context}</div>
+                    <div class="text-sm text-slate-500 mt-1">${role.period}</div>
+                `;
+                list.appendChild(item);
+            });
+            selectRole(0);
+        }
+
+        function selectRole(idx) {
+            // UI Update
+            document.querySelectorAll('.timeline-item').forEach((el, i) => {
+                if (i === idx) el.classList.add('active', 'border-indigo-600');
+                else el.classList.remove('active', 'border-indigo-600');
+            });
+
+            // Content Update
+            const role = resumeData.roles[idx];
+            const detail = document.getElementById('role-detail');
+            detail.style.opacity = 0;
+            
+            setTimeout(() => {
+                detail.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between items-start mb-6 border-b border-stone-200 pb-4">
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-900">${role.title}</h2>
+                            <div class="text-lg text-slate-600">${role.company}</div>
+                        </div>
+                        <span class="mt-2 md:mt-0 px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-bold shadow-sm">${role.period}</span>
+                    </div>
+                    <p class="text-slate-700 italic mb-8 border-l-4 border-indigo-200 pl-4 py-1 bg-white shadow-sm rounded-r-md">"${role.summary}"</p>
+                    <div class="grid grid-cols-1 gap-4">
+                        ${role.details.map(d => `
+                            <div class="flex gap-4 p-4 bg-white rounded-lg border border-stone-200 shadow-sm hover:shadow-md transition">
+                                <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl shrink-0">
+                                    <i class="ph-bold ${d.icon}"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">${d.title}</h4>
+                                    <p class="text-sm text-slate-600 mt-1">${d.text}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                detail.style.opacity = 1;
+            }, 200);
+        }
+
+        // --- GEMINI AI LOGIC ---
+        function openAIModal() {
+            document.getElementById('ai-modal').classList.remove('hidden');
+        }
+        function closeAIModal() {
+            document.getElementById('ai-modal').classList.add('hidden');
+        }
+        function sendQuickMessage(msg) {
+            document.getElementById('user-input').value = msg;
+            sendMessage();
+        }
+        function handleEnter(e) {
+            if(e.key === 'Enter') sendMessage();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const text = input.value.trim();
+            if(!text) return;
+
+            // UI: User Message
+            const chatBox = document.getElementById('chat-messages');
+            chatBox.innerHTML += `
+                <div class="flex items-start gap-3 flex-row-reverse">
+                    <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center shrink-0">👤</div>
+                    <div class="bg-indigo-600 text-white rounded-2xl rounded-tr-none p-3 shadow-sm text-sm max-w-[85%]">${text}</div>
+                </div>
+            `;
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // UI: Loading
+            const loadingId = 'loading-' + Date.now();
+            chatBox.innerHTML += `
+                <div id="${loadingId}" class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">🤖</div>
+                    <div class="bg-white border border-stone-200 rounded-2xl rounded-tl-none p-4 shadow-sm flex gap-1">
+                        <div class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div>
+                        <div class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div>
+                        <div class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                // System Prompt & Context
+                const systemPrompt = `You are an AI Architect Assistant representing Praveen Maruvekere. 
+                Use this resume data: ${JSON.stringify(resumeData)}.
+                Key traits: Expert in C++20, Cloud-Native (Azure), Strategic IaC (Terraform/Ansible oversight), Cost Optimization (~20% savings).
+                Goal: Impress recruiters with his shift from hands-on coding to strategic architecture.
+                Keep answers concise and professional.`;
+
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: systemPrompt + "\n\nUser Question: " + text }] }]
+                    })
+                });
+
+                const data = await response.json();
+                const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't process that right now.";
+
+                // UI: AI Message
+                document.getElementById(loadingId).remove();
+                chatBox.innerHTML += `
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0"><i class="ph-bold ph-robot"></i></div>
+                        <div class="bg-white border border-stone-200 rounded-2xl rounded-tl-none p-3 shadow-sm text-sm text-slate-700 max-w-[90%] ai-message">
+                            ${reply.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
+                        </div>
+                    </div>
+                `;
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+            } catch (e) {
+                console.error(e);
+                document.getElementById(loadingId).remove();
+            }
+        }
+
+        // --- INIT ---
+        window.onload = () => {
+            initCharts();
+            renderExperience();
+        };
+    </script>
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</body>
+</html>
