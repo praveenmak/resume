@@ -6,7 +6,7 @@
     <title>Praveen Maruvekere | Principal Engineer & System Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Phosphor Icons (Unicode/Font alternative to SVG) -->
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -175,7 +175,7 @@
                         </h4>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Distributed Systems</span>
-                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Microservices Strategy</span>
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Legacy Modernization</span>
                             <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Cloud-Native (Azure)</span>
                             <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Technical Roadmap</span>
                             <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm font-medium rounded-md border border-indigo-100">Team Leadership (10+)</span>
@@ -188,6 +188,7 @@
                         </h4>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">Modern C++ (C++20)</span>
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">Java Ecosystem</span>
                             <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">HPC & Low-Latency</span>
                             <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">Multithreading</span>
                             <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-md border border-emerald-100">AKS / Kubernetes</span>
@@ -201,9 +202,9 @@
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">OpenTelemetry (OTel)</span>
                             <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">grok_exporter</span>
-                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">GitHub Actions</span>
-                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">OpenStack Runners</span>
-                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">vcpkg</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">Helm (Universal Charts)</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">JFrog / Akeyless</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">vcpkg & OpenStack Runners</span>
                         </div>
                     </div>
                 </div>
@@ -288,7 +289,7 @@
                 <div class="flex items-start gap-3">
                     <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0"><i class="ph-bold ph-robot"></i></div>
                     <div class="bg-white border border-stone-200 rounded-2xl rounded-tl-none p-3 shadow-sm text-sm text-slate-700">
-                        Hello! I am an AI agent trained on Praveen's resume. You can ask me about his leadership experience, architectural philosophy, or specific technical skills.
+                        Hello! I am an AI agent trained on Praveen's resume. You can ask me about his leadership experience, architectural philosophy, or specific technical skills like Kubernetes or CI/CD pipelines.
                     </div>
                 </div>
             </div>
@@ -315,10 +316,11 @@
                     period: "2021 – Present",
                     summary: "Leading architectural vision and modernization strategies for core data platforms.",
                     details: [
-                        { icon: "ph-arrows-split", title: "Architectural Modernization", text: "Spearheaded strategic overhaul using Modern C++20 (Coroutines, Concepts), improving throughput and longevity." },
-                        { icon: "ph-chart-bar", title: "Observability Leadership (OTel)", text: "Led organizational adoption of OpenTelemetry to identify bottlenecks. Implemented head- and tail-based sampling to efficiently manage data volume and reduce noise." },
-                        { icon: "ph-cloud", title: "Cloud Strategy & Cost Optimization", text: "Leveraged grok_exporter to build custom application metrics. Optimized Kubernetes HPA to scale accurately based on these metrics, driving immense cloud cost savings." },
-                        { icon: "ph-git-merge", title: "CI/CD & Build Engineering", text: "Architected custom GitHub Actions runners on OpenStack for robust C++ builds, utilizing vcpkg for streamlined dependency management." },
+                        { icon: "ph-coffee", title: "Legacy Modernization (C++ to Java)", text: "Leading the strategic architectural migration of a critical data ingestion engine from C++ to a modern Java ecosystem. Designed high-throughput database insertion patterns to optimize data pipelines feeding downstream enterprise billing applications." },
+                        { icon: "ph-cloud-arrow-up", title: "Cloud Migration (AKS)", text: "Led the strategic migration of 50+ C++ services from on-premise data centers to Azure Kubernetes Service. Built secure CI pipelines integrating Akeyless for secrets and JFrog for customized base images." },
+                        { icon: "ph-git-branch", title: "Helm Consolidation & CI/CD", text: "Single-handedly designed a universal Helm chart to deploy all 50+ microservices using isolated, per-environment values. Engineered a Jira-gated release pipeline (via OpenStack and vcpkg) promoting auto-incremented images from JFrog to ACR." },
+                        { icon: "ph-chart-bar", title: "Observability Leadership", text: "Led organization-wide adoption of OpenTelemetry to identify bottlenecks. Implemented head- and tail-based sampling to efficiently manage data volume and drastically improve traces/logs." },
+                        { icon: "ph-currency-circle-dollar", title: "Cloud Cost Optimization", text: "Leveraged grok_exporter to build custom application metrics. Configured Kubernetes HPA to scale accurately based on these metrics, driving immense cloud infrastructure cost savings." },
                         { icon: "ph-users-three", title: "Engineering Leadership", text: "Led cross-functional teams (10+ members) across geographies. Guided real-time Redis caching strategies, achieving a 90% reduction in data retrieval times." }
                     ]
                 },
@@ -331,7 +333,8 @@
                     details: [
                         { icon: "ph-lightning", title: "High-Performance Design", text: "Architected real-time engines using C++20 coroutines, eliminating thread context-switching overhead." },
                         { icon: "ph-arrows-left-right", title: "Concurrency Optimization", text: "Designed lock-free ring buffers & std:atomic IPC mechanisms, significantly reducing latency." },
-                        { icon: "ph-rocket", title: "Process Improvement", text: "Enhanced CI/CD pipelines, improving software release cycles by 30%." }
+                        { icon: "ph-rocket", title: "Process Improvement", text: "Enhanced CI/CD pipelines, improving software release cycles by 30%." },
+                        { icon: "ph-cpu", title: "Memory Optimization", text: "Optimized real-time processing loops using std::span for zero-copy memory access, improving data locality." }
                     ]
                 },
                 {
@@ -364,10 +367,10 @@
             new Chart(document.getElementById('competencyChart'), {
                 type: 'radar',
                 data: {
-                    labels: ['Distributed Systems', 'Modern C++ (HPC)', 'Cloud Strategy', 'Team Leadership', 'CI/CD Architecture', 'Observability (OTel)'],
+                    labels: ['Distributed Systems', 'Modern C++ / Java', 'Cloud Strategy', 'Team Leadership', 'CI/CD Architecture', 'Observability (OTel)'],
                     datasets: [{
                         label: 'Proficiency Level',
-                        data: [95, 95, 90, 85, 90, 95],
+                        data: [95, 95, 90, 85, 95, 95],
                         backgroundColor: 'rgba(79, 70, 229, 0.2)',
                         borderColor: '#4f46e5',
                         pointBackgroundColor: '#4f46e5',
@@ -492,7 +495,7 @@
             try {
                 const systemPrompt = `You are an AI Architect Assistant representing Praveen Maruvekere. 
                 Use this resume data: ${JSON.stringify(resumeData)}.
-                Key traits: Expert in C++20, Cloud-Native (Azure), CI/CD (GitHub Actions custom OpenStack runners, vcpkg), Observability (OpenTelemetry adoption, head/tail sampling), Cost Optimization (Kubernetes HPA via grok_exporter custom metrics).
+                Key traits: Expert in C++20 and Java Ecosystems. Strong in Cloud-Native (Azure AKS migration of 50+ services), CI/CD (Universal Helm chart, Akeyless, JFrog to ACR promotion, Jira-gated pipelines, OpenStack runners, vcpkg), Observability (OpenTelemetry adoption, head/tail sampling), Cost Optimization (Kubernetes HPA via grok_exporter custom metrics).
                 Keep answers concise and professional.`;
 
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
