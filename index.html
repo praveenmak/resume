@@ -202,9 +202,10 @@
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">OpenTelemetry (OTel)</span>
                             <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">grok_exporter</span>
-                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">Helm (Universal Charts)</span>
-                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">JFrog / Akeyless</span>
-                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">vcpkg & OpenStack Runners</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">GitHub Actions</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">OpenStack Runners</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">vcpkg</span>
+                            <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-md border border-amber-100">Bash Automation</span>
                         </div>
                     </div>
                 </div>
@@ -230,6 +231,11 @@
                         <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
                             <div class="text-3xl font-bold text-emerald-600">Immense</div>
                             <div class="text-sm font-medium text-slate-500 uppercase">Cloud Cost Savings (HPA Custom Metrics)</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
+                            <div class="text-3xl font-bold text-sky-600">100%</div>
+                            <div class="text-sm font-medium text-slate-500 uppercase">Deployment Automation</div>
+                            <div class="text-xs text-slate-400 mt-1">Zero manual intervention for 50+ C++ services via custom Bash scripts & CI/CD</div>
                         </div>
                     </div>
                 </div>
@@ -368,10 +374,10 @@
             new Chart(document.getElementById('competencyChart'), {
                 type: 'radar',
                 data: {
-                    labels: ['Distributed Systems', 'Modern C++ / Java', 'Cloud Strategy', 'Team Leadership', 'CI/CD Architecture', 'Observability (OTel)'],
+                    labels: ['Distributed Systems', 'Modern C++ / Java', 'Cloud Strategy', 'Team Leadership', 'CI/CD Architecture', 'Observability (OTel)', 'Bash Automation'],
                     datasets: [{
                         label: 'Proficiency Level',
-                        data: [95, 95, 90, 85, 95, 95],
+                        data: [95, 95, 90, 85, 90, 95, 90],
                         backgroundColor: 'rgba(79, 70, 229, 0.2)',
                         borderColor: '#4f46e5',
                         pointBackgroundColor: '#4f46e5',
@@ -397,15 +403,15 @@
             new Chart(document.getElementById('impactChart'), {
                 type: 'bar',
                 data: {
-                    labels: ['Latency Reduction', 'Release Speedup', 'Cost Savings (HPA)', 'Scalability'],
+                    labels: ['Latency Reduction', 'Release Speedup', 'Cost Savings (HPA)', 'Automated Deployments'],
                     datasets: [{
                         label: 'Improvement (%)',
-                        data: [90, 30, 75, 80],
+                        data: [90, 30, 75, 100],
                         backgroundColor: [
                             'rgba(79, 70, 229, 0.8)',
                             'rgba(16, 185, 129, 0.8)',
                             'rgba(245, 158, 11, 0.8)',
-                            'rgba(59, 130, 246, 0.8)'
+                            'rgba(56, 189, 248, 0.8)'
                         ],
                         borderRadius: 6
                     }]
